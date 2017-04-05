@@ -1,44 +1,33 @@
-function quickSort(arr){
+function mergeSort(arr){
+    if(arr.length < 2)
+      return arr;
 
-// Base case
-  if( arr.length <= 1 ) {
-    return arr;
+    var middle = Math.floor(arr.length/2);
+    var left = arr.slice(0, middle);
+    var right = arr.slice(middle, arr.lenght);
+
+    return merge(mergeSort(left), mergeSort(right));
   }
 
-  // 1) Pick a pivot
-  const pivot = arr[0];
+  function merge(left, right){
+    var result = [];
 
-  // 2) Partition
-  let { left, right } = partition(arr, pivot);
-
-  // 3) Call quick sort recursively
-  let leftArr = quickSort( left );
-  let rightArr = quickSort( right );
-
-  // 4) Concat after calling quicksort recursively
-  return leftArr.concat(pivot, rightArr)
-}
-
-const partition = (arr, pivot) => {
-  let left = [];
-  let right = [];
-
-  // Loop through the array and split it into left and right arrays
-  for( let i = 1; i < arr.length; i++ ) {
-
-    // If value is less than the pivot - push into the left array, else push it into the right
-    if( arr[i] < pivot ) {
-      left.push( arr[i] )
-    } else if( arr[i] > pivot ) {
-      right.push( arr[i] )
+    while (left.length && right.length) {
+      if (left[0] <= right[0]){
+        result.push(left.shift());
+      } else{
+        result.push(right.shift());
+      }
     }
+
+    while (left.length)
+      result.push(left.shift());
+
+    while (right.length)
+      result.push(right.shift());
+
+    return result;
   }
 
-  return {
-    left,
-    right,
-  }
-}
 
-
-console.log(quickSort([3,7,8,4,2,1,5]));
+console.log(mergeSort([3,7,8,4,2,1,5]));

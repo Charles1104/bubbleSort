@@ -58,10 +58,30 @@ describe('quickSort Methods', function () {
   });
 
   it('should sort accurately an array', function () {
-      // expect(newSort.quickSort([3,2,5,2,1,8,9,14,5,4,3,2,-5,-4,0,1])).to.be.a('array');
+      expect(newSort.quickSort([3,2,5,2,1,8,9,14,5,4,3,2,-5,-4,0,1])).to.be.a('array');
       expect(newSort.quickSort([3,7,8,4,2,1,5])).to.deep.equal([1,2,3,4,5,7,8]);
-      // expect(newSort.quickSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
-      // expect(newSort.quickSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
+      expect(newSort.quickSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
+      expect(newSort.quickSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
+    });
+
+});
+
+describe('mergeSort Methods', function () {
+
+  beforeEach(function () {
+    newSort = app();
+  });
+
+  it('quickSort should be a function', function () {
+    expect(newSort.mergeSort).to.be.a('function');
+    expect(global.mergeSort).to.be.undefined;
+  });
+
+  it('should sort accurately an array', function () {
+      expect(newSort.mergeSort([3,2,5,2,1,8,9,14,5,4,3,2,-5,-4,0,1])).to.be.a('array');
+      expect(newSort.mergeSort([3,7,8,4,2,1,5])).to.deep.equal([1,2,3,4,5,7,8]);
+      expect(newSort.mergeSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
+      expect(newSort.mergeSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
     });
 
 });
