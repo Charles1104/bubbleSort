@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 
+
 const chai = require ('chai');
 const expect = chai.expect;
 const app = require('../app.js');
@@ -82,6 +83,47 @@ describe('mergeSort Methods', function () {
       expect(newSort.mergeSort([3,7,8,4,2,1,5])).to.deep.equal([1,2,3,4,5,7,8]);
       expect(newSort.mergeSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
       expect(newSort.mergeSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
+    });
+
+});
+
+describe('insertionSort Methods', function () {
+
+  beforeEach(function () {
+    newSort = app();
+  });
+
+  it('insertionSort should be a function', function () {
+    expect(newSort.insertionSort).to.be.a('function');
+    expect(global.insertionSort).to.be.undefined;
+  });
+
+  it('should sort accurately an array', function () {
+      expect(newSort.insertionSort([3,2,5,2,1,8,9,14,5,4,3,2,-5,-4,0,1])).to.be.a('array');
+      expect(newSort.insertionSort([3,7,8,4,2,1,5])).to.deep.equal([1,2,3,4,5,7,8]);
+      expect(newSort.insertionSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
+      expect(newSort.insertionSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
+    });
+
+});
+
+
+describe('selectionSort Methods', function () {
+
+  beforeEach(function () {
+    newSort = app();
+  });
+
+  it('selectionSort should be a function', function () {
+    expect(newSort.selectionSort).to.be.a('function');
+    expect(global.selectionSort).to.be.undefined;
+  });
+
+  it('should sort accurately an array', function () {
+      expect(newSort.selectionSort([3,2,5,2,1,8,9,14,5,4,3,2,-5,-4,0,1])).to.be.a('array');
+      expect(newSort.selectionSort([3,7,8,4,2,1,5])).to.deep.equal([1,2,3,4,5,7,8]);
+      expect(newSort.selectionSort([0,1,2,2])).to.deep.equal([0,1,2,2]);
+      expect(newSort.selectionSort([25,12,8,34,34,22,23,87,80,65,19,-2])).to.deep.equal([-2, 8, 12, 19, 22, 23, 25, 34, 34, 65, 80, 87]);
     });
 
 });

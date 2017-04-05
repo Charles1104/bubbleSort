@@ -1,33 +1,31 @@
-function mergeSort(arr){
-    if(arr.length < 2)
-      return arr;
+// insertionSort
+  var insertionSort = (arr) => {
+    for(let i = 1; i < arr.length; i++){
 
-    var middle = Math.floor(arr.length/2);
-    var left = arr.slice(0, middle);
-    var right = arr.slice(middle, arr.lenght);
-
-    return merge(mergeSort(left), mergeSort(right));
-  }
-
-  function merge(left, right){
-    var result = [];
-
-    while (left.length && right.length) {
-      if (left[0] <= right[0]){
-        result.push(left.shift());
-      } else{
-        result.push(right.shift());
+      if(arr[i] >= arr[i- 1]){
+        continue;
       }
+
+      for (let j = i ; j > 0; j--){
+        if(arr[i] < arr[j- 1]){
+          temporary = j-1;
+        }
+      }
+
+      arr.splice(temporary, 0, arr[i]);
+      arr.splice(i + 1, 1);
+
     }
-
-    while (left.length)
-      result.push(left.shift());
-
-    while (right.length)
-      result.push(right.shift());
-
-    return result;
-  }
+    return arr;
+  };
 
 
-console.log(mergeSort([3,7,8,4,2,1,5]));
+//swap position
+  // var swap = (arr,i,j) => {
+  //   temp = arr[i];
+  //   arr[i] = arr[j];
+  //   arr[j] = temp;
+  // };
+
+
+console.log(insertionSort([3,2,8,4,2,1,5]));
