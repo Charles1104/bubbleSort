@@ -2,34 +2,57 @@
 
 const chai = require ('chai');
 const expect = chai.expect;
-const app = require('../app.js');
 
-describe("app", function() {
+const bubble = require('../bubbleSort.js');
+const quick = require('../quickSort.js');
+const merge = require('../mergeSort.js');
+const insertion = require('../insertionSort.js');
+const selection = require('../selectionSort.js');
+
+describe("bubbleSort, quickSort, mergeSort, insertionSort, selectionSort", function() {
 
   it('should be a function', function () {
-    expect(app).to.exist;
-    expect(app).to.be.an('function');
+    expect(bubble).to.exist;
+    expect(bubble).to.be.an('function');
+    expect(quick).to.exist;
+    expect(quick).to.be.an('function');
+    expect(merge).to.exist;
+    expect(merge).to.be.an('function');
+    expect(insertion).to.exist;
+    expect(insertion).to.be.an('function');
+    expect(selection).to.exist;
+    expect(selection).to.be.an('function');
   });
 
   it  ('should return an object', function (){
-    expect(app()).to.be.an('object');
+    expect(bubble()).to.be.an('object');
+    expect(quick()).to.be.an('object');
+    expect(merge()).to.be.an('object');
+    expect(insertion()).to.be.an('object');
+    expect(selection()).to.be.an('object');
   });
 
 });
 
 describe('Data Type', function () {
   it('Only arrays can be entered', function () {
-    expect(app().bubbleSort.bind(null,"test")).to.throw(Error);
-    expect(app().bubbleSort.bind(null,8)).to.throw(Error);
-    expect(app().quickSort.bind(null,"test")).to.throw(Error);
-    expect(app().quickSort.bind(null,8)).to.throw(Error);
+    expect(bubble().bubbleSort.bind(null,"test")).to.throw(Error);
+    expect(bubble().bubbleSort.bind(null,8)).to.throw(Error);
+    expect(quick().quickSort.bind(null,"test")).to.throw(Error);
+    expect(quick().quickSort.bind(null,8)).to.throw(Error);
+    expect(merge().mergeSort.bind(null,"test")).to.throw(Error);
+    expect(merge().mergeSort.bind(null,8)).to.throw(Error);
+    expect(insertion().insertionSort.bind(null,"test")).to.throw(Error);
+    expect(insertion().insertionSort.bind(null,8)).to.throw(Error);
+    expect(selection().selectionSort.bind(null,"test")).to.throw(Error);
+    expect(selection().selectionSort.bind(null,8)).to.throw(Error);
   });
 });
 
 describe('BubbleSort Methods', function () {
 
   beforeEach(function () {
-    newSort = app();
+    newSort = bubble();
   });
 
   it('bubbleSort should be a function', function () {
@@ -49,7 +72,7 @@ describe('BubbleSort Methods', function () {
 describe('quickSort Methods', function () {
 
   beforeEach(function () {
-    newSort = app();
+    newSort = quick();
   });
 
   it('quickSort should be a function', function () {
@@ -69,7 +92,7 @@ describe('quickSort Methods', function () {
 describe('mergeSort Methods', function () {
 
   beforeEach(function () {
-    newSort = app();
+    newSort = merge();
   });
 
   it('quickSort should be a function', function () {
@@ -89,7 +112,7 @@ describe('mergeSort Methods', function () {
 describe('insertionSort Methods', function () {
 
   beforeEach(function () {
-    newSort = app();
+    newSort = insertion();
   });
 
   it('insertionSort should be a function', function () {
@@ -110,7 +133,7 @@ describe('insertionSort Methods', function () {
 describe('selectionSort Methods', function () {
 
   beforeEach(function () {
-    newSort = app();
+    newSort = selection();
   });
 
   it('selectionSort should be a function', function () {

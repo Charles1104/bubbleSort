@@ -5,7 +5,7 @@
 The bubble sort algorithm is a sorting algorithm that sorts numbers by iteration starting from the first position. At each iteration it will check if the previous number is greater than the current one. In case if yes, it will swap the values. It will iterate as long as all the elements are sorted.
 
 2. Pseudo-Code
-
+```
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
     repeat
@@ -19,7 +19,7 @@ procedure bubbleSort( A : list of sortable items )
         n = n - 1
     until not swapped
 end procedure
-
+```
 3. Best-case scenario
 
 The best case happens when the numbers are already sorted. Then we will only to go through all the numbers only one time and see that it is actually sorted. Therefore:
@@ -41,7 +41,7 @@ The quickSort algorithm sorts numbers by dividing each time the set of numbers b
 2. Pseudo-Code
 
 Lomuto partition scheme
-
+```
 algorithm quicksort(A, lo, hi) is
     if lo < hi then
         p := partition(A, lo, hi)
@@ -57,7 +57,7 @@ algorithm partition(A, lo, hi) is
             swap A[i] with A[j]
     swap A[i+1] with A[hi]
     return i + 1
-
+```
 3. Best-case scenario
 
 Quicksort's best case occurs when the partitions are as evenly balanced as possible: their sizes either are equal or are within 1 of each other. The former case occurs if the subarray has an odd number of elements and the pivot is right in the middle after partitioning, and each partition has (n-1)/2 elements. The latter case occurs if the subarray has an even number n of elements and one partition has n/2 elements with the other having (n/2)-1. In either of these cases, each partition has at most n/2, and the tree of subproblem sizes looks a lot like the tree of subproblem sizes for merge sort, with the partitioning times looking like the merging times (see explanation on the merge sort best-case and worst case scenario). In this case
@@ -78,9 +78,9 @@ The Merge Sort algorithm is a divide and conquer algorithm that sorts numbers. I
 
 
 2. Pseudo-Code
-
+```
 function merge_sort(list m)
-    // Base case. A list of zero or one elements is sorted, by definition.
+    //Base case. A list of zero or one elements is sorted, by definition.
     if length of m ≤ 1 then
         return m
 
@@ -122,7 +122,7 @@ function merge(left, right)
         append first(right) to result
         right := rest(right)
     return result
-
+```
 
 3. Best-case scenario and Worst-case scenario
 
@@ -150,7 +150,7 @@ The insertion sort algorithm is a sorting algorithm that checks every number to 
 
 
 2. Pseudo-Code
-
+```
 for i = 1 to length(A)
     j ← i
     while j > 0 and A[j-1] > A[j]
@@ -158,6 +158,7 @@ for i = 1 to length(A)
         j ← j - 1
     end while
 end for
+```
 
 3. Best-case scenario
 
@@ -178,13 +179,14 @@ The selection Sort algorithm is a very basic sorting algorithm that is taught fo
 
 
 2. Pseudo-Code
-
+```
 for j ← 1 to n-1
   smallest ← j
   for i ← j + 1 to n
     if A[ i ] < A[ smallest ]
       smallest ← i
 Exchange A[ j ] ↔ A[ smallest ]
+```
 
 
 3. Best-case scenario and worst case scenario
